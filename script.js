@@ -67,6 +67,6 @@ function updateScore(){
 function time(){
     let d = new Date();
     // concatenate a string with all the data info...
-    // d = d.getFullYear + " " + d.getTime();
+    // d = d.getFullYear() + " " + d.getTime();
     return d;
 }
