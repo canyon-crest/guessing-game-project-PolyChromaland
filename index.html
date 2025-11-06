@@ -3,31 +3,67 @@
   <head>
     <title>JavaScript Number Guessing Game</title>
     <script src="script.js" defer></script>
+    <style>
+      /* Simple centered layout */
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Arial, sans-serif; margin: 0; padding: 24px; display: flex; justify-content: center; }
+      #app { max-width: 860px; width: 100%; text-align: center; }
+      h1 { margin: 8px 0 12px; font-size: 1.8rem; }
+      p, h3 { margin: 8px 0; }
+      .controls { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; align-items: center; }
+      input[type="text"] { padding: 6px 8px; border-radius: 4px; border: 1px solid #e8930b; }
+      button { padding: 6px 10px; border-radius: 6px; border: 2px solid #f69c47; background: #fbe78c; cursor: pointer; }
+      button:disabled { opacity: 0.6; cursor: default; }
+      ol { display: inline-block; text-align: left; margin-top: 6px; }
+      #playerName { font-weight: 600; margin-left: 8px; }
+      @media (max-width:420px){ #app{ padding:0 12px; } }
+    </style>
   </head>
   <body>
-    <p id="date"></p>
+    <div id="app">
+      <h1 id="gameTitle">Number Guessing Game</h1>
+      <p id="date"></p>
 
-    <h3>Level</h3>
-    <input type="radio" name="level" id="e" value="3" checked><label for="e">Easy</label>
-    <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
-    <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
+      <p class="controls">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter name">
+        <button id="saveName">Save</button>
+        <span id="playerName"></span>
+      </p>
 
-    <button id="playBtn">Play</button>
+      <h3>Level</h3>
+      <div class="controls">
+        <input type="radio" name="level" id="e" value="3" checked><label for="e">Easy</label>
+        <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
+        <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
+      </div>
 
-    <h3 id="msg">Select a Level</h3>
-    <input type="text" id="guess">
-    <button id="guessBtn" disabled>Guess</button>
-    <button id="giveUp" disabled>Give Up</button>
+      <div class="controls">
+        <button id="playBtn" disabled>Play</button>
+      </div>
 
-    <h3>Stats</h3>
-    <p id="wins">Total wins: 0</p>
-    <p id="avgScore">Average Score: </p>
+      <p id="roundTimer">Round time: 00:00</p>
 
-    <h3>Leaderboard</h3>
-    <ol>
-      <li name="leaderboard">100</li>
-      <li name="leaderboard">100</li>
-      <li name="leaderboard">100</li>
-    </ol>
+      <h3 id="msg">Select a Level</h3>
+      <div class="controls">
+        <input type="text" id="guess" placeholder="Enter guess">
+        <button id="guessBtn" disabled>Guess</button>
+        <button id="giveUp" disabled>Give Up</button>
+      </div>
+
+      <h3>Stats</h3>
+      <p id="wins">Total wins: 0</p>
+      <p id="avgScore">Average Score: </p>
+      <p id="lastVerdict"></p>
+      <p id="fastestTime">Fastest Time: </p>
+      <p id="avgTime">Average Time: </p>
+
+      <h3>Leaderboard</h3>
+      <ol>
+        <li name="leaderboard">100</li>
+        <li name="leaderboard">100</li>
+        <li name="leaderboard">100</li>
+      </ol>
+    </div>
   </body>
 </html>
